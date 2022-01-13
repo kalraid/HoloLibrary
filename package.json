@@ -7,6 +7,7 @@
     "build:stage": "vue-cli-service build --mode staging",
     "dev": "vue-cli-service serve",
     "prod": "vue-cli-service serve  --mode production",
+    "local": "vue-cli-service serve  --mode local",
     "i18n:report": "vue-cli-service i18n:report --src \"./src/**/*.?(js|vue)\" --locales \"./src/locales/**/*.json\"",
     "preview": "node build/index.js --preview"
   },
