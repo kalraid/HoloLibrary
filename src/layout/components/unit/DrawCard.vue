@@ -197,7 +197,7 @@ export default {
       this.$store.dispatch('statistics/sendMessage', { 'message': 'adult', 'user': GET_LOCAL_ITEM('user_index'), 'tagType': this.tagType, 'artType': this.artType, 'data': this.fanartItem })
     },
     ban() {
-      this.$store.dispatch('statistics/sendMessage', { 'message': 'ban', 'user': GET_LOCAL_ITEM('user_index'), 'tagType': this.type, 'artType': this.artType, 'data': this.fanartItem })
+      this.$store.dispatch('statistics/sendMessage', { 'message': 'ban', 'user': GET_LOCAL_ITEM('user_index'), 'tagType': this.tagType, 'artType': this.artType, 'data': this.fanartItem })
     }
   }
 }
