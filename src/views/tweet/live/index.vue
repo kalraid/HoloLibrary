@@ -19,11 +19,26 @@
           <template
             v-if="getSelectedMemberTweet"
           >
-            <tweet-component-tweet
-              :id="getSelectedMemberTweet.id"
-              :key="getSelectedMemberTweet.id"
-              :options="{ theme: 'dark' }"
-            />
+            <v-container
+              fill-height
+              fluid
+            >
+              <v-row
+                align="center"
+                justify="center"
+              >
+                <v-col
+                  align="center"
+                  justify="center"
+                >
+                  <tweet-component-tweet
+                    :id="getSelectedMemberTweet.id"
+                    :key="getSelectedMemberTweet.id"
+                    :options="{ theme: 'dark' }"
+                  />
+                </v-col>
+              </v-row>
+            </v-container>
           </template>
         </v-card>
       </v-row>

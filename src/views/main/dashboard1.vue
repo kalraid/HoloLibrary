@@ -72,11 +72,28 @@
               <template
                 v-if="tweetId"
               >
-                <tweet-component-tweet
-                  :id="getTweet"
-                  :key="getTweet"
+                <v-container
                   fill-height
-                />
+                  fluid
+                >
+                  <v-row
+                    align="center"
+                    justify="center"
+                  >
+                    <v-col
+                      align="center"
+                      justify="center"
+                    >
+                      <tweet-component-tweet
+                        :id="getTweet"
+                        :key="getTweet"
+                        fill-height
+                        fill-width
+                      />
+                    </v-col>
+                  </v-row>
+                </v-container>
+
               </template>
             </v-container></v-card>
         </v-col>

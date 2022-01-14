@@ -122,22 +122,22 @@ export default {
     refreshFanart() {
       const $that = this
       const params = { 'type': this.artType, 'tagType': this.tagType }
-
+      let liveImageCall
+      let dataKey
       if (this.artType === 'renewer') {
-        getRenewerLives(params).then(({ data }) => {
-          $that.artList = data.tweet_list
-          $that.fanartItem = $that.artList[$that.count]
-          $that.setTimer()
-          $that.drawType = data.draw_type
-        })
+        liveImageCall = getRenewerLives(params)
+        dataKey = 'draw_list'
       } else {
-        getDrawsLives(params).then(({ data }) => {
-          $that.artList = data.tweet_list
-          $that.fanartItem = $that.artList[$that.count]
-          $that.setTimer()
-          $that.drawType = data.draw_type
-        })
+        liveImageCall = getDrawsLives(params)
+        dataKey = 'tweet_list'
       }
+
+      liveImageCall.then(({ data }) => {
+        $that.artList = data.get(dataKey)
+        $that.fanartItem = $that.artList[$that.count]
+        $that.setTimer()
+        $that.drawType = data.draw_type
+      })
     },
     getFanart() {
       return this.fanartItem
