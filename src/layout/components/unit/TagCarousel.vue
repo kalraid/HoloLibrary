@@ -65,6 +65,7 @@ export default {
       type: String,
       default: null
     }
+
   },
   data() {
     return {
