@@ -131,6 +131,7 @@ export default {
         liveImageCall = getDrawsLives(params)
         dataKey = 'tweet_list'
       }
+      console.log(23)
 
       liveImageCall.then(({ data }) => {
         $that.artList = data.get(dataKey)
