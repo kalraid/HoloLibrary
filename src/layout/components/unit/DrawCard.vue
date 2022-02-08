@@ -132,7 +132,7 @@ export default {
         dataKey = 'tweet_list'
       }
       liveImageCall.then(({ data }) => {
-        $that.artList = data.get(dataKey)
+        $that.artList = data[dataKey]
         $that.fanartItem = $that.artList[$that.count]
         $that.setTimer()
         $that.drawType = data.draw_type
