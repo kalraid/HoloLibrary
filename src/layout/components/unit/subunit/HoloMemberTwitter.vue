@@ -35,7 +35,7 @@
         class="pa-0"
       >
         <a
-          :href="'https://twitter.com/moonahoshinova/status/'+member.twitter_id"
+          :href="member.twitter_url"
           target="_blank"
         >go to tweet</a>
       </v-card-text>
