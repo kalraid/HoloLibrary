@@ -1,6 +1,18 @@
 /*======= Horizontal Menu Scss =======*/
-.mt-50 {
-   margin-top: 50px;
+@media (min-width: 200px) {
+   .mt-50 {
+      margin-top: 150px;
+   }
+}
+@media (min-width: 580px) {
+   .mt-50 {
+      margin-top: 100px;
+   }
+}
+@media (min-width: 1000px) {
+   .mt-50 {
+      margin-top: 50px;
+   }
 }
 .app-horizontal-layout {
   overflow: hidden;
@@ -13,9 +25,9 @@
         padding: 0 4rem 0 1.5rem;
      }
   }
-  .v-main {
-     margin-top: 3.25rem;
-  }
+   .v-main {
+      margin-top: 3.25rem;
+   }
   .horizontal-menu {
      .search-form {
         display: none;
@@ -33,7 +45,7 @@
   background-color: $hoz-menu-bg;
   box-shadow: $app-shadow-box;
   border-top: 1px solid #e8e8e8;
-  height: 3.3rem;
+   height: 3.3rem;
   margin-top: 58px;
   position: fixed;
   left: 0;

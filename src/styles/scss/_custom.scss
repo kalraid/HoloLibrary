@@ -50,7 +50,30 @@ body {
   fill: #000;
   width: 43px;
 }
-
+@media (min-width: 200px) {
+  .horizontal-menu {
+    height: 9.3rem;
+    .svg-icon {
+      background-color: initial;
+    }
+  }
+}
+@media (min-width: 580px) {
+  .horizontal-menu {
+    height: 6.3rem;
+    .svg-icon {
+      background-color: initial;
+    }
+  }
+}
+@media (min-width: 1000px) {
+  .horizontal-menu {
+    height: 3.3rem;
+    .svg-icon {
+      background-color: initial;
+    }
+  }
+}
 .horizontal-menu {
   .svg-icon {
     background-color: initial;
