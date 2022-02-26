@@ -38,6 +38,8 @@ module.exports = {
       warnings: false,
       errors: true
     },
+    host: '0.0.0.0',
+    disableHostCheck: true,
     historyApiFallback: true
     //! 실제 API 연동시 Mock 서버는 제거하세요
     // before: require('./mock/mock-server.js')
