@@ -14,20 +14,16 @@
           </template>
 
           <v-card>
-            <v-carousel
-              width="90vmin"
-              height="90vmin"
-            >
-              <v-carousel-item
+            <v-row>
+              <v-col
                 v-for="(item,i) in costumes"
                 :key="i"
-                width="90vmin"
-                height="90vmin"
-                :src="item.img_url"
                 reverse-transition="fade-transition"
                 transition="fade-transition"
-              />
-            </v-carousel>
+              >
+                <v-img :src="item.img_url" />
+              </v-col>
+            </v-row>
           </v-card>
         </v-dialog>
       </div>

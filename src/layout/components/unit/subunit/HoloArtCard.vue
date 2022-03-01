@@ -7,7 +7,7 @@
         >
           <template v-slot:activator="{ on, attrs }">
             <v-card
-              :style="fanartStyle('30vmin')"
+              :style="fanartStyle('20vmin')"
               v-bind="attrs"
               v-on="on"
             />
@@ -16,6 +16,8 @@
           <v-card>
             <v-card-title class="text-h5 grey lighten-2">
               Lage Image
+              <v-spacer />
+              <v-btn @click="dialog = false">X</v-btn>
             </v-card-title>
 
             <v-card
@@ -70,6 +72,13 @@
         class="pa-0"
         v-text="getTime(draw.created)"
       />
+      <img
+        :src="getDraw.url"
+        :alt="getDraw.twitter_user_nm"
+        width="1"
+        height="1"
+        @error="disabledImage"
+      >
     </v-card-subtitle>
   </v-card>
 </template>
@@ -115,7 +124,8 @@ export default {
   data() {
     return {
       dialog: false,
-      lodingImg: 'http://pbs.twimg.com/media/FIZ-ACwUUAEONeG.jpg'
+      lodingImg: 'http://pbs.twimg.com/media/FIZ-ACwUUAEONeG.jpg',
+      imageCheck: ''
     }
   },
   computed: {
@@ -136,7 +146,6 @@ export default {
   beforeMount() {
     this.$i18n.locale = this.locale
   },
-
   methods: {
     getTime(value) {
       if (value) {
@@ -153,8 +162,13 @@ export default {
 
       return { backgroundImage: 'url(' + draw.url + '?format=jpg), url(' + this.lodingImg + ')', backgroundSize: 'contain', backgroundPosition: 'center', height: heightSize }
     },
+    disabledImage() {
+      if (this.draw != null) {
+        this.$store.dispatch('statistics/sendMessage', { 'message': 'disable', 'user': GET_LOCAL_ITEM('user_index'), 'type': this.type, 'data': this.draw })
+      }
+    },
     imageDownLoad() {
-      // this.$refs.download.click()
+      // this.$refs.download.calick()
       downloadImg(this.draw.url)
       this.$store.dispatch('statistics/sendMessage', { 'message': 'download', 'user': GET_LOCAL_ITEM('user_index'), 'type': this.type, 'data': this.draw })
 

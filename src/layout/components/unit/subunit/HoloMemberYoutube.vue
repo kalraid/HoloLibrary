@@ -19,12 +19,12 @@
             </v-card-title>
 
             <v-card
-              :style="fanartStyle('80vmin','banner')"
+              :style="fanartStyle('70vmin','banner')"
               @contextmenu.prevent
             />
             <v-card-subtitle style="text-align:center">
               <a
-                :href="'https://www.youtube.com/channel/'+channel.id"
+                :href="channel.channel_url"
                 target="_blank"
               >go to youtube</a>
               <v-card-text
@@ -46,7 +46,7 @@
         class="pa-0"
       >
         <a
-          :href="'https://www.youtube.com/channel/'+channel.id"
+          :href="'https://www.youtube.com/channel/'+channel.channel_id"
           target="_blank"
         >go to youtube</a>
       </v-card-text>

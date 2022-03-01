@@ -12,4 +12,7 @@
     "javascript",
     "vue"
   ],
+  "i18n-ally.localesPaths": [
+    "src/locales"
+  ],
 }
