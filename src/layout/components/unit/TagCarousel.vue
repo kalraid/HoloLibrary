@@ -54,7 +54,7 @@ export default {
     },
     rowNumber: { // observer 객체로 인식됨
       type: Number,
-      default: 4
+      default: 2
     },
     isCustom: {
       type: Boolean,
