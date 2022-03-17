@@ -7,7 +7,7 @@
       class="text-center"
       cols="12"
     >
-      <p class="footer">{{ new Date().getFullYear() }} — <strong>IN-SOFT</strong></p>
+      <!-- <p class="footer"><strong>HoloLibrary</strong></p> -->
     </v-col>
   </v-footer>
 </template>

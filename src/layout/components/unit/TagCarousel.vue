@@ -13,6 +13,7 @@
             <HoloArtCard
               :draw="selectDraw([i,item])"
               :type="type"
+              :draw-type="drawType"
             />
           </v-col>
         </template>
@@ -40,7 +41,7 @@ export default {
   },
   mixins: [StoreHelper],
   props: {
-    drawType: {
+    artType: {
       type: String,
       default: 'fanart'
     },
@@ -70,7 +71,8 @@ export default {
       drawsData: [],
       drawPage: 1,
       maxDrawPage: 50,
-      type: 'base'
+      type: 'base',
+      drawType: null
     }
   },
   computed: {
@@ -99,9 +101,10 @@ export default {
             })
             $that.maxDrawPage = Math.round(draws.length / $that.rowNumber / $that.colNumber)
             $that.drawPage = 1
+            $that.drawType = draws.draw_res.data.draw_type
           })
         } else {
-          drawParams = { 'type': this.drawType, 'member_id': this.memberId }
+          drawParams = { 'type': this.artType, 'member_id': this.memberId }
           getDraws(drawParams).then((draw_res) => {
             draws.splice(0, draws.length)
             draw_res.data.draw_list.forEach((item) => {
@@ -109,6 +112,7 @@ export default {
             })
             $that.maxDrawPage = Math.round(draws.length / $that.rowNumber / $that.colNumber)
             $that.drawPage = 1
+            $that.drawType = draw_res.data.draw_type
           })
         }
       }

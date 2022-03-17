@@ -34,35 +34,6 @@
         min-height="400px"
         :draw="getFanart()"
       />
-      <v-card-actions>
-        <v-spacer />
-        <v-btn
-          @click="like()"
-        >
-          Like
-        </v-btn>
-        <v-spacer />
-        <v-btn
-          @click="dislike()"
-        >
-          Dislike
-        </v-btn>
-        <v-spacer />
-        <template v-if="getAdminRole">
-          <v-btn
-            @click="adult()"
-          >
-            Adult
-          </v-btn>
-          <v-spacer />
-          <v-btn
-            @click="ban()"
-          >
-            Ban
-          </v-btn>
-          <v-spacer />
-        </template>
-      </v-card-actions>
     </v-card>
   </v-card>
 </template>
@@ -70,10 +41,6 @@
 <script>
 import { getDrawsLives } from '@/api/tweet'
 import HoloArtCard from '@/layout/components/unit/subunit/HoloArtCard.vue'
-
-import {
-  GET_LOCAL_ITEM
-} from '@/utils/local-storage'
 
 export default {
   name: 'DrawCard',
@@ -107,7 +74,8 @@ export default {
       scrollStart: true,
       baseUrl: 'https://pbs.twimg.com/media/FKU3L1TakAEl2gB',
       timer: null,
-      fanartItem: {}
+      fanartItem: {},
+      drawType: null
     }
   },
   computed: {
@@ -123,12 +91,6 @@ export default {
           this.scrollStart = value
           clearTimeout(this.timer)
         }
-      }
-    },
-    getAdminRole: {
-      get() {
-        const adminArray = process.env.VUE_APP_ADMIN_EMAILS
-        return adminArray && adminArray.indexOf(GET_LOCAL_ITEM('user_email')) > -1
       }
     }
   },
@@ -164,6 +126,7 @@ export default {
         $that.artList = data.tweet_list
         $that.fanartItem = $that.artList[$that.count]
         $that.setTimer()
+        $that.drawType = data.draw_type
       })
     },
     getFanart() {
@@ -186,18 +149,6 @@ export default {
       if (this.count > 0) {
         this.count -= 1
       }
-    },
-    like() {
-      this.$store.dispatch('statistics/sendMessage', { 'message': 'like', 'user': GET_LOCAL_ITEM('user_index'), 'tagType': this.tagType, 'artType': this.artType, 'data': this.fanartItem })
-    },
-    dislike() {
-      this.$store.dispatch('statistics/sendMessage', { 'message': 'dislike', 'user': GET_LOCAL_ITEM('user_index'), 'tagType': this.tagType, 'artType': this.artType, 'data': this.fanartItem })
-    },
-    adult() {
-      this.$store.dispatch('statistics/sendMessage', { 'message': 'adult', 'user': GET_LOCAL_ITEM('user_index'), 'tagType': this.tagType, 'artType': this.artType, 'data': this.fanartItem })
-    },
-    ban() {
-      this.$store.dispatch('statistics/sendMessage', { 'message': 'ban', 'user': GET_LOCAL_ITEM('user_index'), 'tagType': this.tagType, 'artType': this.artType, 'data': this.fanartItem })
     }
   }
 }

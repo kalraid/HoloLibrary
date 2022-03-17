@@ -1,7 +1,7 @@
 {
-  "name": "insoft-vue",
+  "name": "hololibrary",
   "version": "0.0.1",
-  "author": "yeonho <yeonho@in-soft.co.kr>",
+  "author": "chpark <kalraid92@gmail.com>",
   "scripts": {
     "build:prod": "vue-cli-service build --mode production",
     "build:stage": "vue-cli-service build --mode staging",

@@ -100,6 +100,7 @@ export default {
       set(value) {
         const $that = this
         const params = { 'member_id': value }
+        console.log(params)
         getMemberCustomes(params).then(({ data }) => {
           const temp = []
           data.customes_list.forEach((item) => {
@@ -110,9 +111,13 @@ export default {
       }
     }
   },
+  watch: {
+    member() {
+      this.getCostumes = this.member.index
+    }
+  },
   beforeMount() {
     this.$i18n.locale = this.locale
-    this.getCostumes = this.member.index
   },
   methods: {
     imageStyle(heightSize) {

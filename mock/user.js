@@ -11,13 +11,13 @@ const tokens = {
 const users = {
   'admin-token': {
     roles: ['admin'],
-    introduction: 'yeonho@in-soft.co.kr',
+    introduction: 'kalraid92@gmail.com',
     avatar: '',
     name: 'YeonHo'
   },
   'editor-token': {
     roles: ['editor'],
-    introduction: 'yeonho@in-soft.co.kr',
+    introduction: 'kalraid92@gmail.com',
     avatar: '',
     name: 'Guest'
   }

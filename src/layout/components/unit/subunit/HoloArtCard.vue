@@ -80,6 +80,35 @@
         @error="disabledImage"
       >
     </v-card-subtitle>
+    <v-card-actions v-show="getDraw">
+      <v-spacer />
+      <v-btn
+        @click="like()"
+      >
+        Like
+      </v-btn>
+      <v-spacer />
+      <v-btn
+        @click="dislike()"
+      >
+        Dislike
+      </v-btn>
+      <v-spacer />
+      <template v-if="getAdminRole">
+        <v-btn
+          @click="adult()"
+        >
+          Adult
+        </v-btn>
+        <v-spacer />
+        <v-btn
+          @click="ban()"
+        >
+          Ban
+        </v-btn>
+        <v-spacer />
+      </template>
+    </v-card-actions>
   </v-card>
 </template>
 <script>
@@ -124,7 +153,7 @@ export default {
   data() {
     return {
       dialog: false,
-      lodingImg: 'http://pbs.twimg.com/media/FIZ-ACwUUAEONeG.jpg',
+      lodingImg: require('@/assets/404_images/404_image.png'),
       imageCheck: ''
     }
   },
@@ -133,6 +162,12 @@ export default {
     getDraw: {
       get() {
         return this.draw
+      }
+    },
+    getAdminRole: {
+      get() {
+        const adminArray = process.env.VUE_APP_ADMIN_EMAILS
+        return adminArray && adminArray.indexOf(GET_LOCAL_ITEM('user_email')) > -1
       }
     }
   },
@@ -165,6 +200,26 @@ export default {
     disabledImage() {
       if (this.draw != null) {
         this.$store.dispatch('statistics/sendMessage', { 'message': 'disable', 'user': GET_LOCAL_ITEM('user_index'), 'type': this.type, 'data': this.draw })
+      }
+    },
+    like() {
+      if (this.draw != null) {
+        this.$store.dispatch('statistics/sendMessage', { 'message': 'like', 'user': GET_LOCAL_ITEM('user_index'), 'data': this.fanartItem, 'drawType': this.drawType })
+      }
+    },
+    dislike() {
+      if (this.draw != null) {
+        this.$store.dispatch('statistics/sendMessage', { 'message': 'dislike', 'user': GET_LOCAL_ITEM('user_index'), 'data': this.fanartItem, 'drawType': this.drawType })
+      }
+    },
+    adult() {
+      if (this.draw != null) {
+        this.$store.dispatch('statistics/sendMessage', { 'message': 'adult', 'user': GET_LOCAL_ITEM('user_index'), 'data': this.fanartItem, 'drawType': this.drawType })
+      }
+    },
+    ban() {
+      if (this.draw != null) {
+        this.$store.dispatch('statistics/sendMessage', { 'message': 'ban', 'user': GET_LOCAL_ITEM('user_index'), 'data': this.fanartItem, 'drawType': this.drawType })
       }
     },
     imageDownLoad() {
