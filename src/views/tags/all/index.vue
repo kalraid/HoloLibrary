@@ -17,7 +17,7 @@
         >
           <member-tool-bar @selectedMemberId="val => selectMemberId(val)" />
           <tag-carousel
-            :draw-type="drawType"
+            :art-type="artType"
             :member-id="selectedMember"
           /></v-card>
       </v-row>
@@ -48,7 +48,8 @@ export default {
   mixins: [StoreHelper],
   data() {
     return {
-      selectedMember: 1
+      selectedMember: 1,
+      artType: 'all'
     }
   },
   computed: {

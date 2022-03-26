@@ -120,7 +120,7 @@ import {
 } from '@/utils/local-storage'
 
 export default {
-  name: 'TagCarousel',
+  name: 'HoloArtCard',
   mixins: [StoreHelper],
   props: {
     draw: {

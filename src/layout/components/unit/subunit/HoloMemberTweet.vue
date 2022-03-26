@@ -89,7 +89,7 @@ import {
 } from '@/utils/local-storage'
 
 export default {
-  name: 'TagCarousel',
+  name: 'HoloMemberTweet',
   mixins: [StoreHelper],
   props: {
     draw: {

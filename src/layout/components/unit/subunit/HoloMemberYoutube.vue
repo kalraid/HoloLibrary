@@ -70,7 +70,7 @@ import {
 } from '@/utils/local-storage'
 
 export default {
-  name: 'TagCarousel',
+  name: 'HoloMemberYoutube',
   mixins: [StoreHelper],
   props: {
     channel: {

@@ -52,7 +52,7 @@ import { mapGetters } from 'vuex'
 import { getMemberCustomes } from '@/api/member'
 
 export default {
-  name: 'TagCarousel',
+  name: 'HoloMemberCard',
   mixins: [StoreHelper],
   props: {
     member: {

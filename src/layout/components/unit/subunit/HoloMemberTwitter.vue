@@ -56,7 +56,7 @@ import StoreHelper from '@/utils/store-helper'
 import { mapGetters } from 'vuex'
 
 export default {
-  name: 'TagCarousel',
+  name: 'HoloMemberTwitter',
   mixins: [StoreHelper],
   props: {
     member: {
