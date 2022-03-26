@@ -169,6 +169,18 @@ export default {
         const adminArray = process.env.VUE_APP_ADMIN_EMAILS
         return adminArray && adminArray.indexOf(GET_LOCAL_ITEM('user_email')) > -1
       }
+    },
+    getDrawType: {
+      get() {
+        console.log('getDrawType : ' + this.type)
+        if (this.type === 'base') {
+          return 'first'
+        } else if (this.type === 'custom') {
+          return 'second'
+        } else {
+          return 'third'
+        }
+      }
     }
   },
   watch: {
@@ -204,22 +216,22 @@ export default {
     },
     like() {
       if (this.draw != null) {
-        this.$store.dispatch('statistics/sendMessage', { 'message': 'like', 'user': GET_LOCAL_ITEM('user_index'), 'data': this.fanartItem, 'drawType': this.drawType })
+        this.$store.dispatch('statistics/sendMessage', { 'message': 'like', 'user': GET_LOCAL_ITEM('user_index'), 'data': this.draw, 'drawType': this.getDrawType })
       }
     },
     dislike() {
       if (this.draw != null) {
-        this.$store.dispatch('statistics/sendMessage', { 'message': 'dislike', 'user': GET_LOCAL_ITEM('user_index'), 'data': this.fanartItem, 'drawType': this.drawType })
+        this.$store.dispatch('statistics/sendMessage', { 'message': 'dislike', 'user': GET_LOCAL_ITEM('user_index'), 'data': this.draw, 'drawType': this.getDrawType })
       }
     },
     adult() {
       if (this.draw != null) {
-        this.$store.dispatch('statistics/sendMessage', { 'message': 'adult', 'user': GET_LOCAL_ITEM('user_index'), 'data': this.fanartItem, 'drawType': this.drawType })
+        this.$store.dispatch('statistics/sendMessage', { 'message': 'adult', 'user': GET_LOCAL_ITEM('user_index'), 'data': this.draw, 'drawType': this.getDrawType })
       }
     },
     ban() {
       if (this.draw != null) {
-        this.$store.dispatch('statistics/sendMessage', { 'message': 'ban', 'user': GET_LOCAL_ITEM('user_index'), 'data': this.fanartItem, 'drawType': this.drawType })
+        this.$store.dispatch('statistics/sendMessage', { 'message': 'ban', 'user': GET_LOCAL_ITEM('user_index'), 'data': this.draw, 'drawType': this.getDrawType })
       }
     },
     imageDownLoad() {
