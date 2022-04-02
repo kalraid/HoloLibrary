@@ -58,6 +58,12 @@
         class="pa-0"
         v-text="channel.member_name"
       />
+      <v-card-text
+        v-if="getTime"
+        class="pa-0"
+      >
+        <span> 구독일자 : <span v-text="getTime" /></span>
+      </v-card-text>
     </v-card-subtitle>
   </v-card>
 </template>
@@ -110,6 +116,13 @@ export default {
       get() {
         return this.channel
       }
+    },
+    getTime() {
+      if (this.channel.sub_date) {
+        return this.channel.sub_date
+      } else {
+        return ''
+      }
     }
   },
   watch: {
@@ -124,13 +137,6 @@ export default {
   },
 
   methods: {
-    getTime(value) {
-      if (value) {
-        return new Date(value * 1000).toLocaleString()
-      } else {
-        return ''
-      }
-    },
     fanartStyle(heightSize, imgType) {
       const channel = this.getChannel
       if ('type' in channel && channel.type === 'temp') {

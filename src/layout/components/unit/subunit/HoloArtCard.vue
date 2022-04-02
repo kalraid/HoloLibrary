@@ -1,5 +1,5 @@
 <template>
-  <v-card>
+  <v-card v-show="type != 'temp'">
     <template>
       <div class="text-center">
         <v-dialog

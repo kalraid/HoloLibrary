@@ -56,17 +56,6 @@ export default {
         menu_id: 'M20304',
         activeClass: 'is-active'
       }
-    },
-    {
-      path: 'all',
-      name: 'all',
-      component: () => import('@/views/tags/all/index.vue'),
-      meta: {
-        title: 'all',
-        role: 'user',
-        menu_id: 'M20305',
-        activeClass: 'is-active'
-      }
     }
   ]
 }

@@ -10,12 +10,10 @@
         no-gutters
         align="center"
         justify="center"
-      />
+      >
+        <UnderConstruction />
+      </v-row>
       <!-- //? Snackbar 컴포넌트 -->
-      <common-snackbars
-        :visible="snackbar"
-        @close="snackbar = false"
-      />
     </v-container>
   </v-app>
 </template>
@@ -29,13 +27,13 @@ import {
 
 //! Helper는 Global Mixin으로 만들지 고민필요
 import StoreHelper from '@/utils/store-helper'
-import CommonSnackbars from '@/components/Snackbars'
 import { mapGetters } from 'vuex'
+import UnderConstruction from '@/layout/components/underConstruction/making.vue'
 
 export default {
   name: 'Channel',
   components: {
-    CommonSnackbars
+    UnderConstruction
   },
   mixins: [StoreHelper],
   data() {

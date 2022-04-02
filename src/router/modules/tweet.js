@@ -34,28 +34,6 @@ export default {
         menu_id: 'M20402',
         activeClass: 'is-active'
       }
-    },
-    {
-      path: 'basetag',
-      name: 'basetag',
-      component: () => import('@/views/tweet/basetag/index.vue'),
-      meta: {
-        title: 'basetag',
-        role: 'user',
-        menu_id: 'M20403',
-        activeClass: 'is-active'
-      }
-    },
-    {
-      path: 'onetimetag',
-      name: 'onetimetag',
-      component: () => import('@/views/tweet/onetimetag/index.vue'),
-      meta: {
-        title: 'onetimetag',
-        role: 'user',
-        menu_id: 'M20404',
-        activeClass: 'is-active'
-      }
     }
   ]
 }

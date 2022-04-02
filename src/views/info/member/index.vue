@@ -55,8 +55,8 @@ export default {
         default: []
       },
       page: 1,
-      colNumber: 4,
-      rowNumber: 3,
+      colNumber: 5,
+      rowNumber: 2,
       maxPage: 50
 
     }
