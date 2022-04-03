@@ -99,7 +99,7 @@ export default {
       data.member_list.forEach((item) => {
         companySet.add(item.company_name_alias)
         const classification = item.member_classification + ' - ' + item.member_generation
-        console.log(typeof (item))
+        // console.log(typeof (item))
         classSet.add(classification)
         item.classification = classification
         $that.memberData.push(item)

@@ -14,14 +14,21 @@
           </template>
 
           <v-card>
+            <v-container>
+              <v-card-text>
+                <h2>{{ member.member_name_kor }}의 여러 코스튬을 보고 가셔요</h2>
+              </v-card-text>
+            </v-container>
             <v-row>
               <v-col
-                v-for="(item,i) in costumes"
+                v-for="(item,i) in getCostumes"
                 :key="i"
-                reverse-transition="fade-transition"
-                transition="fade-transition"
               >
-                <v-img :src="item.img_url" />
+                <v-container>
+                  <v-img
+                    :src="item.img_url"
+                  />
+                </v-container>
               </v-col>
             </v-row>
           </v-card>
@@ -100,7 +107,7 @@ export default {
       set(value) {
         const $that = this
         const params = { 'member_id': value }
-        console.log(params)
+        // console.log(params)
         getMemberCustomes(params).then(({ data }) => {
           const temp = []
           data.customes_list.forEach((item) => {
@@ -112,7 +119,7 @@ export default {
     }
   },
   watch: {
-    member() {
+    dialog() {
       this.getCostumes = this.member.index
     }
   },

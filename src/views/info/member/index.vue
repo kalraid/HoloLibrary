@@ -72,12 +72,12 @@ export default {
     const user_email = GET_LOCAL_ITEM('user_email')
     const user = { user_id, user_email }
     getMember(user).then(({ data }) => {
-      console.log(data)
+      // console.log(data)
       if (data && data.member_list) {
         this.memberData = data.member_list
         this.maxPage = Math.round(data.member_list.length / this.colNumber / this.rowNumber)
-        console.log(data.member_list)
-        console.log(this.maxPage)
+        // console.log(data.member_list)
+        // console.log(this.maxPage)
       }
     })
   },

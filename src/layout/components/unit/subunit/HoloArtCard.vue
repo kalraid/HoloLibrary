@@ -172,7 +172,7 @@ export default {
     },
     getDrawType: {
       get() {
-        console.log('getDrawType : ' + this.type)
+        // console.log('getDrawType : ' + this.type)
         if (this.type === 'base') {
           return 'first'
         } else if (this.type === 'custom') {

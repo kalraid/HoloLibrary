@@ -73,12 +73,12 @@ export default {
     const user = { user_id, user_email }
 
     getMemberChannel(user).then(({ data }) => {
-      console.log(data)
+      // console.log(data)
       if (data && data.data) {
         this.memberYoutubeData = data.data
         this.maxPage = Math.round(data.data.length / this.colNumber / this.rowNumber)
-        console.log(data.data)
-        console.log(this.maxPage)
+        // console.log(data.data)
+        // console.log(this.maxPage)
       }
     })
   },

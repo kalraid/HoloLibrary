@@ -65,12 +65,12 @@ export default {
   },
   mounted() {
     getTwitters().then(({ data }) => {
-      console.log(data)
+      // console.log(data)
       if (data && data.twitter_list) {
         this.memberTwitterData = data.twitter_list
         this.maxPage = Math.round(data.twitter_list.length / this.colNumber / this.rowNumber)
-        console.log(data.twitter_list)
-        console.log(this.maxPage)
+        // console.log(data.twitter_list)
+        // console.log(this.maxPage)
       }
     })
   },

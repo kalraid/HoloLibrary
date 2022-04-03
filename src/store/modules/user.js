@@ -59,8 +59,8 @@ const actions = {
       googleLogin(data).then((response) => {
         const { data, meta } = response
         console.log('googleUserLogin data')
-        console.log(data)
-        console.log(meta)
+        // console.log(data)
+        // console.log(meta)
 
         if (!data || !meta) {
           return reject('Verification failed, please Login again.')

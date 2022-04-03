@@ -107,7 +107,7 @@ export default {
           }
           this.$store.dispatch('user/googleUserLogin', { userInfo })
             .then(result => {
-              console.log(result)
+              // console.log(result)
 
               REMOVE_LOCAL_ITEM('user_id')
               REMOVE_LOCAL_ITEM('user_email')

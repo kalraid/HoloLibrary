@@ -162,7 +162,7 @@ export default {
   },
   methods: {
     toggleTheme() {
-      console.log('1')
+      // console.log('1')
       const themeName = this.selectedTheme
       if (themeName === 'dark') {
         this.dispatchTheme('themeDark', true, true)
