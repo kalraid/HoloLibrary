@@ -3,34 +3,12 @@
     <page-container>
       <v-row>
         <v-col cols="12">
-          <v-card>
-            <v-card-title>Live Streaming</v-card-title>
-            <template v-for="item in getStream">
-              <v-container :key="item.url">
-                <v-card>
-                  <a
-                    :href="item.url"
-                    target="_blank"
-                  >
-                    <v-container>
-                      <p v-text="item.member" />
-                      <v-container center>
-                        <img
-                          :src="item.image_url"
-                          width="100%"
-                          height="100%"
-                        >
-                      </v-container>
-                      <v-container>
-                        <p v-text="item.date" />
-                        <p v-text="item.text" />
-                      </v-container>
-                    </v-container>
-                  </a>
-                </v-card>
-              </v-container>
-            </template>
-          </v-card>
+          <DrawCard
+            :maxcount="60*60"
+            :speed="8"
+            :art-type="renewerArtType"
+            :tag-type="renewerTagType"
+          />
         </v-col>
       </v-row>
       <v-row>
@@ -125,6 +103,8 @@ export default {
       randomTagType: 'fanart',
       recommendArtType: 'recommend',
       recommendTagType: 'fanart',
+      renewerArtType: 'renewer',
+      renewerTagType: 'fanart',
       news: '',
       stream: []
     }
