@@ -47,3 +47,11 @@ export function getDrawsLives(data) {
     params: { type: data.type, tagType: data.tagType }
   })
 }
+
+export function getRenewerLives(data) {
+  return request({
+    url: '/v1/tweet/renewer/draws',
+    method: 'get',
+    params: { type: data.type, tagType: data.tagType }
+  })
+}

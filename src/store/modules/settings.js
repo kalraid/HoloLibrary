@@ -9,6 +9,8 @@ const {
   horizontalMenu,
   themeDark,
   themeSemiDark,
+  dataStudent,
+  dataChild,
   locale
 } = defaultSettings
 
@@ -21,6 +23,8 @@ const state = {
   horizontal: horizontalMenu,
   themeDark: themeDark,
   themeSemiDark: themeSemiDark,
+  dataStudent: dataStudent,
+  dataChild: dataChild,
   locale: locale
 }
 

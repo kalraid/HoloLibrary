@@ -39,7 +39,7 @@
 </template>
 
 <script>
-import { getDrawsLives } from '@/api/tweet'
+import { getDrawsLives, getRenewerLives } from '@/api/tweet'
 import HoloArtCard from '@/layout/components/unit/subunit/HoloArtCard.vue'
 
 export default {
@@ -122,12 +122,22 @@ export default {
     refreshFanart() {
       const $that = this
       const params = { 'type': this.artType, 'tagType': this.tagType }
-      getDrawsLives(params).then(({ data }) => {
-        $that.artList = data.tweet_list
-        $that.fanartItem = $that.artList[$that.count]
-        $that.setTimer()
-        $that.drawType = data.draw_type
-      })
+
+      if (this.artType === 'renewer') {
+        getRenewerLives(params).then(({ data }) => {
+          $that.artList = data.tweet_list
+          $that.fanartItem = $that.artList[$that.count]
+          $that.setTimer()
+          $that.drawType = data.draw_type
+        })
+      } else {
+        getDrawsLives(params).then(({ data }) => {
+          $that.artList = data.tweet_list
+          $that.fanartItem = $that.artList[$that.count]
+          $that.setTimer()
+          $that.drawType = data.draw_type
+        })
+      }
     },
     getFanart() {
       return this.fanartItem

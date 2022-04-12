@@ -11,6 +11,8 @@ const getters = {
   fixedBread: state => state.settings.fixedBreadCrumb,
   darkTheme: state => state.settings.themeDark,
   semiDarkTheme: state => state.settings.themeSemiDark,
+  dataStudent: state => state.settings.dataStudent,
+  dataChild: state => state.settings.dataChild,
   locale: state => state.settings.locale
 }
 export default getters

@@ -9,7 +9,7 @@ module.exports = {
    * @type {string} x.x
    * @description 개발 버전
    */
-  version: '0.0.1',
+  version: '0.0.2',
 
   /**
    * @type {boolean} true | false
@@ -52,6 +52,18 @@ module.exports = {
    * @description 일부 어두운 테마 사용여부
    */
   themeSemiDark: false,
+
+  /**
+   * @type {boolean} true | false
+   * @description 아이모드 - 성인모드(19금짤 허가 여부)
+   */
+  dataChild: false,
+
+  /**
+   * @type {boolean} true | false
+   * @description 학생모드 - 졸업생모드(졸업 한 멤버 제외 여부)
+   */
+  dataStudent: false,
 
   /**
    * @type {string} ko | en
